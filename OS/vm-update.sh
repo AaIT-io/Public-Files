@@ -36,10 +36,10 @@ deb http://mirrors.linode.com/debian bullseye-updates main
 deb-src http://mirrors.linode.com/debian bullseye-updates main
 EOF
     apt update -y
+    chattr +i /etc/redhat-release
 fi
 
 
 # 结束后重启下避免SSH停止运行
-chattr +i /etc/redhat-release
 reboot
 
