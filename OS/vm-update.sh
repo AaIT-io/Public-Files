@@ -37,3 +37,7 @@ EOF
     apt update -y
 fi
 
+
+# 结束后重启下避免SSH停止运行
+reboot
+
