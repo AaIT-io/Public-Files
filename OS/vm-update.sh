@@ -40,5 +40,6 @@ fi
 
 
 # 结束后重启下避免SSH停止运行
+chattr +i /etc/redhat-release
 reboot
 
