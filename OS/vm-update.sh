@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+# 仅用于生成环境虚拟机
+
+
 # --- 允许SSH密钥登录 ---
 sed -i 's/^#\?PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
 systemctl restart sshd
