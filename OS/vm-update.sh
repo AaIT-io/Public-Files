@@ -10,8 +10,9 @@ sleep 3s && systemctl restart sshd && chattr +i /etc/ssh/sshd_config
 
 
 # 检测系统并执行对应更新命令
-if [ -f /etc/redhat-release ]; then
-    # CentOS 系统（兼容7/8）
+if [ -f /etc/redhat-release ] && ! grep -q 'Rocky' /etc/redhat-release; then
+    # CentOS 系统（兼容7/8），排除 Rocky Linux 系列
+    echo "检测到 CentOS/RHEL 系统..."
     bash <(curl -sSL https://linuxmirrors.cn/main.sh) \
         --source mirrors.aliyun.com \
         --protocol http \
