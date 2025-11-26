@@ -35,8 +35,8 @@ deb-src http://mirrors.linode.com/debian-security bullseye-security/updates main
 deb http://mirrors.linode.com/debian bullseye-updates main
 deb-src http://mirrors.linode.com/debian bullseye-updates main
 EOF
-    apt update -y
     chattr +i /etc/apt/sources.list
+    apt update -y
 fi
 
 
