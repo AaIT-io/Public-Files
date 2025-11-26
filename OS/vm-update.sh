@@ -25,16 +25,8 @@ if [ -f /etc/redhat-release ] && ! grep -q 'Rocky' /etc/redhat-release; then
 # Debian 11 系统
 elif [ -f /etc/debian_version ] && grep -q '^11' /etc/debian_version; then
     # 直接替换为Linode的软件源
-    cat > /etc/apt/sources.list << EOF
-deb http://mirrors.linode.com/debian bullseye main
-deb-src http://mirrors.linode.com/debian bullseye main
-
-deb http://mirrors.linode.com/debian-security bullseye-security/updates main
-deb-src http://mirrors.linode.com/debian-security bullseye-security/updates main
-
-deb http://mirrors.linode.com/debian bullseye-updates main
-deb-src http://mirrors.linode.com/debian bullseye-updates main
-EOF
+    rm -rf /etc/apt/sources.list
+    wget -O /etc/apt/sources.list https://raw.githubusercontent.com/AaIT-io/Public-Files/refs/heads/main/OS/debian11-sources.list
     apt update -y
     chattr +i /etc/redhat-release
 fi
