@@ -6,7 +6,7 @@
 
 # --- 允许SSH密钥登录 ---
 sed -i 's/^#\?PubkeyAuthentication.*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
-sleep 3s && systemctl restart sshd && chattr +i /etc/ssh/sshd_config
+sleep 3s && systemctl restart sshd
 
 
 # 检测系统并执行对应更新命令
